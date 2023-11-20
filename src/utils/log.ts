@@ -1,11 +1,13 @@
-export function formatParsedValuesForLogging(
-    parsedMinute: string,
-    parsedHour: string,
-    parsedDayOfMonth: string,
-    parsedMonth: string,
-    parsedDayOfWeek: string,
-    parsedCommand: string
-) {
+import { ParsedOutput } from "../models/parse";
+
+export function formatParsedValuesForLogging({
+    parsedMinute,
+    parsedHour,
+    parsedDayOfMonth,
+    parsedMonth,
+    parsedDayOfWeek,
+    parsedCommand,
+}: ParsedOutput) {
     return {
         minute: parsedMinute,
         hour: parsedHour,
@@ -16,22 +18,22 @@ export function formatParsedValuesForLogging(
     };
 }
 
-export function logConfiguration(
-    parsedMinute: string,
-    parsedHour: string,
-    parsedDayOfMonth: string,
-    parsedMonth: string,
-    parsedDayOfWeek: string,
-    parsedCommand: string
-) {
+export function logConfiguration({
+    parsedMinute,
+    parsedHour,
+    parsedDayOfMonth,
+    parsedMonth,
+    parsedDayOfWeek,
+    parsedCommand,
+}: ParsedOutput) {
     console.table(
-        formatParsedValuesForLogging(
+        formatParsedValuesForLogging({
             parsedMinute,
             parsedHour,
             parsedDayOfMonth,
             parsedMonth,
             parsedDayOfWeek,
-            parsedCommand
-        )
+            parsedCommand,
+        })
     );
 }
