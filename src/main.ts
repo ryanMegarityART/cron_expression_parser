@@ -12,7 +12,7 @@ import { logConfiguration } from "./utils/log";
             'Please provide a CRON string as an argument, e.g. "*/15 0 1,15 * 1-5 /usr/bin/find"'
         );
     }
-    const [, , minute, hour, dayOfMonth, month, dayOfWeek, command] =
+    const [minute, hour, dayOfMonth, month, dayOfWeek, command] =
         process.argv[2].split(" ");
     const parsedMinute = parseMinute(minute);
     const parsedHour = parseHour(hour);
