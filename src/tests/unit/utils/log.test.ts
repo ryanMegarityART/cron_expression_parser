@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { formatParsedValuesForLogging } from "../../utils/log";
+import { formatParsedValuesForLogging } from "../../../utils/log";
 
 describe("log to console", () => {
     it("should format the log correctly for console.table", () => {

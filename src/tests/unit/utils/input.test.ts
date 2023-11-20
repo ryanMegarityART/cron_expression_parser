@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { extractIndividualCRONSectionsFromInput } from "../../utils/input";
+import { extractIndividualCRONSectionsFromInput } from "../../../utils/input";
 
 describe("Input is correctly interpreted", () => {
     it("splits the input as expected", () => {

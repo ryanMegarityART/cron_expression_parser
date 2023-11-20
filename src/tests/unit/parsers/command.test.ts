@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { parseCommand } from "../../parsers/command";
+import { parseCommand } from "../../../parsers/command";
 
 describe("command is parsed correctly", () => {
     it("returns input given since no parsing currenlty required", () => {
