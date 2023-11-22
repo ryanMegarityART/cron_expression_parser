@@ -21,7 +21,7 @@ export function parseMinute(minuteCRONInput: string): string {
     // check if we have a range passed in
     const rangeMatches = minuteCRONInput.match(
         new RegExp(
-            `(^${RANGE_ALLOWED_FOR_MINUTES_REGEX}|${REGEX_WILDCARD_CHARACTER})\-${RANGE_ALLOWED_FOR_MINUTES_REGEX}$`
+            `^${RANGE_ALLOWED_FOR_MINUTES_REGEX}\-${RANGE_ALLOWED_FOR_MINUTES_REGEX}$`
         )
     );
     if (rangeMatches !== null) {
@@ -32,10 +32,38 @@ export function parseMinute(minuteCRONInput: string): string {
         const rangeStart = +rangeStringAsArray[0];
         const rangeEnd = +rangeStringAsArray[1];
         let rangeArray = [];
-        for (let i = rangeStart; i <= rangeEnd; i++) {
+        for (let i = +rangeStart; i <= +rangeEnd; i++) {
             rangeArray.push(i);
         }
         return rangeArray.join(" ");
+    }
+
+    // check if we have a step passed in
+    const stepMatches = minuteCRONInput.match(
+        new RegExp(
+            `^(${RANGE_ALLOWED_FOR_MINUTES_REGEX}|${REGEX_WILDCARD_CHARACTER})\/${RANGE_ALLOWED_FOR_MINUTES_REGEX}$`
+        )
+    );
+    if (stepMatches !== null) {
+        const stepStringAsArray = stepMatches[0].split("/");
+        if (stepStringAsArray.length !== 2) {
+            throw new Error("Minute step is not valid");
+        }
+        const stepStart = stepStringAsArray[0];
+        const stepEnd = stepStringAsArray[1];
+        let stepArray = [];
+        if (stepStart === "*") {
+            let increment = 0;
+            while (increment < 60) {
+                stepArray.push(increment);
+                increment = increment + +stepEnd;
+            }
+        } else {
+            for (let i = +stepStart; i <= +stepEnd; i++) {
+                stepArray.push(i);
+            }
+        }
+        return stepArray.join(" ");
     }
 
     // throw if we have no valid matches
