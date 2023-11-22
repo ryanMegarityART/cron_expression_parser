@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { parseInputs } from "../../parser";
 
 describe("parser should expand CRON statements correctly", () => {
-    it("expand the statement correctly", () => {
+    it("expands the statement correctly", () => {
         const {
             parsedMinute,
             parsedHour,

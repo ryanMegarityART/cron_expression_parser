@@ -5,7 +5,9 @@
     "main": "main.ts",
     "scripts": {
         "start": "ts-node src/main.ts",
-        "test": "ts-mocha 'src/tests/**/*.test.ts' --exit --timeout 6000"
+        "test": "ts-mocha 'src/tests/**/*.test.ts' --exit --timeout 6000",
+        "test-unit": "ts-mocha 'src/tests/unit/**/*.test.ts' --exit --timeout 6000",
+        "test-acceptance": "ts-mocha 'src/tests/acceptance/**/*.test.ts' --exit --timeout 6000"
     },
     "repository": {
         "type": "git",
