@@ -11,5 +11,5 @@ export type CRONSectionFormatted =
     | "hour"
     | "day of month"
     | "month"
-    | "day of week"
+    | "day of Week"
     | "command";
