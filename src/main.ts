@@ -38,8 +38,12 @@ export function main() {
             }
 
         );
+
     } catch (e) {
-        console.error("Unexpected error parsing input: ", e)
+
+        console.error("Error parsing input: ", e)
+        process.exit(1);
+
     }
 }
 

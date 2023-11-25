@@ -12,7 +12,7 @@ export function parseFixedNumber(input: string, section: Exclude<CRONSection, "c
     );
     if (singleNumberMatches !== null) {
         if (singleNumberMatches[0] === "*") {
-            return fullRange("minute");
+            return fullRange(section);
         }
         return singleNumberMatches[0];
     }
