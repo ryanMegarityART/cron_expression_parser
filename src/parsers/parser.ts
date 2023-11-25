@@ -1,12 +1,17 @@
 import { CRONSection } from "../models/cron";
+import { parseCommand } from "./helpers/command";
 import { parseFixedNumber } from "./helpers/fixed";
 import { parseRange } from "./helpers/range";
 
 const REGEX_WILDCARD_CHARACTER = "\\*";
 
-export function parser(cronInput: string, type: Exclude<CRONSection, "command">): string {
+export function parser(cronInput: string, type: CRONSection): string {
 
     const RANGE_ALLOWED_FOR_MINUTES_REGEX = "[1-5]?[0-9]";
+
+    if (type === "command") {
+        return parseCommand(cronInput)
+    }
 
     const fixedNumberParse = parseFixedNumber(cronInput, type)
     if (fixedNumberParse) {
