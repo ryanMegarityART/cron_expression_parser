@@ -19,6 +19,36 @@ export function fullRange(section: Exclude<CRONSection, "command">) {
     }
 }
 
+export type LimitMapping = {
+    [key in Exclude<CRONSection, "command">]: {
+        lower: number,
+        upper: number
+    };
+}
+
+export const limitMapping: LimitMapping = {
+    minute: {
+        lower: 0,
+        upper: 59
+    },
+    hour: {
+        lower: 0,
+        upper: 23
+    },
+    month: {
+        lower: 1,
+        upper: 12
+    },
+    dayOfWeek: {
+        lower: 0,
+        upper: 7
+    },
+    dayOfMonth: {
+        lower: 1,
+        upper: 31
+    },
+}
+
 export function parseRange(input: string, section: Exclude<CRONSection, "command">): string | null {
 
     // check if we have a range passed in

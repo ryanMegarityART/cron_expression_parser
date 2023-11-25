@@ -48,10 +48,10 @@ describe("minute is parsed correctly", () => {
         expect(parsedMinute).to.equal("5 15 25");
     });
     it("throws for invalid values", () => {
-        expect(() => parser("60", "minute")).to.throw("Minute passed is not valid");
-        expect(() => parser("-1", "minute")).to.throw("Minute passed is not valid");
+        expect(() => parser("60", "minute")).to.throw(`minute could not be parsed [input: "60"]`);
+        expect(() => parser("-1", "minute")).to.throw(`minute could not be parsed [input: "-1"]`);
         expect(() => parser("50-73", "minute")).to.throw(
-            "Minute passed is not valid"
+            `minute could not be parsed [input: "50-73"]`
         );
     });
 });
