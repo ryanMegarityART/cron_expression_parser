@@ -2,12 +2,14 @@ import { CRONSection } from "../../models/cron";
 import { REGEX_WILDCARD_CHARACTER, rangePatternMapping } from "./patterns";
 import { limitMapping, parseRange } from "./range";
 
-export function parseStep(input: string, section: Exclude<CRONSection, "command">): string | null {
-
+export function parseStep(
+    input: string,
+    section: Exclude<CRONSection, "command">
+): string | null {
     // check if we have a step passed in
     const stepMatches = input.match(
         new RegExp(
-            `^(${rangePatternMapping[section]}|${REGEX_WILDCARD_CHARACTER})\/${rangePatternMapping[section]}$`
+            `^(${rangePatternMapping[section]}\-${rangePatternMapping[section]}|${rangePatternMapping[section]}|${REGEX_WILDCARD_CHARACTER})\/${rangePatternMapping[section]}$`
         )
     );
     if (stepMatches !== null) {
@@ -18,26 +20,26 @@ export function parseStep(input: string, section: Exclude<CRONSection, "command"
         const stepStart = stepStringAsArray[0];
         const stepEnd = stepStringAsArray[1];
 
-        const rangeParse = parseRange(stepStart, section)
-        if (rangeParse) {
-            // if this returns we know the start is of step form and can use that
-            return rangeParse
+        let lowerLimit = limitMapping[section].lower;
+        let upperLimit = limitMapping[section].upper;
+
+        if (stepStart != "*") {
+            const rangeParse = parseRange(stepStart, section);
+            if (rangeParse) {
+                const rangeArray = rangeParse.split(" ");
+                lowerLimit = +rangeArray[0];
+                upperLimit = +rangeArray[rangeArray.length - 1];
+            }
         }
 
         let stepArray = [];
-        if (stepStart === "*") {
-            let increment = 0;
-            while (increment < limitMapping[section].upper) {
-                stepArray.push(increment);
-                increment = increment + +stepEnd;
-            }
-        } else {
-            for (let i = +stepStart; i <= +stepEnd; i++) {
-                stepArray.push(i);
-            }
+        let increment = lowerLimit;
+        while (increment <= upperLimit) {
+            stepArray.push(increment);
+            increment = increment + +stepEnd;
         }
         return stepArray.join(" ");
     }
 
-    return null
+    return null;
 }

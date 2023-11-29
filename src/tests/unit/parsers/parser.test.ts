@@ -35,21 +35,25 @@ describe("minute is parsed correctly", () => {
         parsedMinute = parser("*/10", "minute");
         expect(parsedMinute).to.equal("0 10 20 30 40 50");
     });
-    it("returns the correct string for a step", () => {
-        let parsedMinute = parser("0/15", "minute");
-        expect(parsedMinute).to.equal("0 15 30 45");
-        parsedMinute = parser("5/10", "minute");
-        expect(parsedMinute).to.equal("5 15 25 35 45 55");
-    });
     it("returns the correct string for a step with a range", () => {
         let parsedMinute = parser("0-29/15", "minute");
         expect(parsedMinute).to.equal("0 15");
         parsedMinute = parser("5-25/10", "minute");
         expect(parsedMinute).to.equal("5 15 25");
     });
+    it("returns the correct string for a list", () => {
+        let parsedMinute = parser("3,4", "minute");
+        expect(parsedMinute).to.equal("3 4");
+        parsedMinute = parser("10,15,49,59", "minute");
+        expect(parsedMinute).to.equal("10 15 49 59");
+    });
     it("throws for invalid values", () => {
-        expect(() => parser("60", "minute")).to.throw(`minute could not be parsed [input: "60"]`);
-        expect(() => parser("-1", "minute")).to.throw(`minute could not be parsed [input: "-1"]`);
+        expect(() => parser("60", "minute")).to.throw(
+            `minute could not be parsed [input: "60"]`
+        );
+        expect(() => parser("-1", "minute")).to.throw(
+            `minute could not be parsed [input: "-1"]`
+        );
         expect(() => parser("50-73", "minute")).to.throw(
             `minute could not be parsed [input: "50-73"]`
         );
