@@ -21,7 +21,7 @@ npm run test # run all tests (unit and acceptance)
 
 npm run test-unit # run just the unit tests
 
-npm run test-acceptance # run just the unit tests
+npm run test-acceptance # run just the acceptance tests
 ```
 
 ## Resources
