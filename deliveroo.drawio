@@ -1,9 +1,85 @@
-<mxfile host="app.diagrams.net" modified="2023-12-01T12:36:36.786Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" version="22.1.5" etag="2kPYTOu61xTDD9SML2ak" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-01T14:56:54.190Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="yFm_g0NhHpIv16ihLDp0" version="22.1.5" type="github">
   <diagram name="Page-1" id="1GFZ9LNcqXIwYAzBgQg2">
-    <mxGraphModel>
+    <mxGraphModel dx="1364" dy="2018" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-1" value="in-memory cache of key values&lt;br&gt;[userId]&lt;br&gt;burgersLeftToBeClaimed" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="447.5" y="130" width="125" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-2" value="Backend server for fetching from the database.&lt;br&gt;If doesn&#39;t exist then create." style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="440" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-3" value="Backend server for fetching from the database.&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;If doesn&#39;t exist then create." style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="570" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-4" value="Backend server for fetching from the database.&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;If doesn&#39;t exist then create." style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="310" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="UPaFkkY95kvGGJCZ14u1-5" target="UPaFkkY95kvGGJCZ14u1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-5" value="Load balancing&lt;br&gt;server" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="447.5" y="610" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="UPaFkkY95kvGGJCZ14u1-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="498" y="620" as="sourcePoint" />
+            <mxPoint x="490" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="630" as="sourcePoint" />
+            <mxPoint x="350" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="UPaFkkY95kvGGJCZ14u1-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="420" as="sourcePoint" />
+            <mxPoint x="290" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-15" value="reads" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="UPaFkkY95kvGGJCZ14u1-9">
+          <mxGeometry x="0.4677" y="1" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="431" as="sourcePoint" />
+            <mxPoint x="498" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="422" as="sourcePoint" />
+            <mxPoint x="537" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-13" value="in-memory cache of key values" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="850" y="80" width="125" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-14" value="SQL Database&lt;br&gt;UsersClaimed:&lt;br&gt;userId&lt;br&gt;UQ constrinat on userId&lt;br&gt;&lt;br&gt;CONTRAINT to 6 million rows" style="shape=datastore;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="60" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="410" as="sourcePoint" />
+            <mxPoint x="260" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-17" value="writes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="UPaFkkY95kvGGJCZ14u1-16">
+          <mxGeometry x="0.4677" y="1" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-18" value="update cache at regular interval&lt;br&gt;&lt;br&gt;Read the next users to be claimed&lt;br&gt;&lt;br&gt;updatte the burgers left ot be claimed" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="337.5" y="-40" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="UPaFkkY95kvGGJCZ14u1-20" value="in-memory cache of key values&lt;br&gt;[userId]&lt;br&gt;burgersLeftToBeClaimed" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="610" y="130" width="125" height="140" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
